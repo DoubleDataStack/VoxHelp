@@ -197,14 +197,12 @@ end
 -- @param a Начало интервала интегрирования.
 -- @param b Конец интервала, по которому производится интегрирование.
 -- @return Примерное значение интеграла.
-
 -- @usage
 -- -- Пример: аппроксимировать интеграл sin(x) от 0 до pi/2 (1,57...)
 -- >> print(vox_math.integral(math.sin, 0, 1.57)) -- Выводит 1
 --
 -- -- Пример: аппроксимировать интеграл sin(x) от -pi до pi
 -- >> print(vox_math.integral(math.sin, -math.pi, math.pi)) -- Выводит 0
-
 -- Пример: вычисление натурального логарифма с использованием определенного интеграла
 --    function vox_math.ln(n)
 --        if n > 0 then 
@@ -368,7 +366,7 @@ end
 --  Пифагоровы тройки 
 --  @param n, m (integer)
 --  @return a,b,c (integer)
-function pyth(m, n)
+function vox_math.pyth(m, n)
     local i = m*m
     local j = n*n
     return i-j,2*m*n,i+j
@@ -376,23 +374,25 @@ end
 
 
 -- Символ Кронекера
-function delta_kron(i,j)
+--@param i, j (int)
+--@return 0 or 1 (int)
+function vox_math.delta_kron(i,j)
     return 1 if i == j else 0
 end
 
 --  Проверка --
 --  Является ли число квадратом другого числа.
-function is_square(n)
+function vox_math.is_square(n)
     return n > 0 and math.floor(math.sqrt(n)) ^ 2 == n
 end
 
 --  Является ли число степенью другого числа.
-function is_power(a, b)
+function vox_math.is_power(a, b)
     return a > 0 and b > 0 and math.floor(a ^ (1 / b)) ^ b == a
 end
 
 --  Является ли число числом Пифагора (число, которое дает три пары чисел).
-function is_prime(n)
+function vox_math.is_prime(n)
     if n < 2 then
         return false
     end
@@ -404,7 +404,7 @@ function is_prime(n)
     return true
 end
 
-function is_perfect(n)
+function vox_math.is_perfect(n)
     local sum = 0
     for i = 1, n - 1 do
         if n % i == 0 then
@@ -430,11 +430,11 @@ end
 --     return sum1 == sum2
 -- end
 
-function is_mersenne(n)
+function vox_math.is_mersenne(n)
     return n > 1 and 2 ^ n - 1 == n
 end
 
-function is_pyth(n)
+function vox_math.is_pyth(n)
     local found = false
     for a = 1, n - 1 do
         for b = a, n - 1 do
@@ -449,5 +449,6 @@ function is_pyth(n)
     end
     return found
 end
+
 
 return vox_math
