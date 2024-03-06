@@ -430,6 +430,10 @@ end
 --     return sum1 == sum2
 -- end
 
+function vox_math.sigmoid(n)
+    return 1/(1+vox_math.exp(-n))
+end
+
 function vox_math.is_mersenne(n)
     return n > 1 and 2 ^ n - 1 == n
 end
