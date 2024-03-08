@@ -454,5 +454,21 @@ function vox_math.is_pyth(n)
     return found
 end
 
+        --Fib
+--@param n - [int]
+--@return b - [int]
+function vox_math.fib(n)
+    local a = 0
+    local b = 1
+    local c
+    if n==0 then return a end
+    for i = 2, n, 1 do
+        c = a + b 
+        a = b 
+        b = c 
+    end
+    return b
+end
+
 
 return vox_math
