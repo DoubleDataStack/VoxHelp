@@ -79,4 +79,31 @@ function vox_arrays.sort()
     return self
 end
 
+
+-- @return: true || false (bool)
+-- @example:
+-- print(all({true, false, false})) -- false
+-- print(all({true, true, true})) -- true
+function vox_arrays.all(iterable)
+    for i, val in ipairs(iterable) do
+        if not val then
+            return false
+        end
+    end
+    return true
+end
+
+-- @return: true || false (bool)
+-- @example:
+-- print(any({false, false, false})) -- false
+-- print(any({false, true, false})) -- true
+function vox_arrays.any(iterable)
+    for i, val in ipairs(iterable) do
+        if not val then
+            return true
+        end
+    end
+    return false
+end
+
 return vox_arrays
