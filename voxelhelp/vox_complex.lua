@@ -1,5 +1,9 @@
--- Complex Operation
--- z = a + bi 
+--Complex Operation
+--z = x + yi 
+--@usage
+--      local ... = vox_complex(..., ...)
+--Ex:   local cc = vox_complex.new(1,2)
+
 local vox_complex = {}
 vox_complex.__index = vox_complex
 
@@ -45,3 +49,5 @@ end
 function vox_complex.__tostring(c) --вывод
     return c.real .. " + " .. c.imag .. "i"
 end 
+
+return vox_complex
